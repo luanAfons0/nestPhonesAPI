@@ -6,10 +6,18 @@ API (Projeto 1)
 usuários cadastrados. / done
 ● A API deve conter um endpoint GET “api/users/:userId/phone_numbers” que
 retorna a lista de telefones de um determinado usuário por ID (validar
-parâmetros via DTO).
+parâmetros via DTO). / done
 ● A API deve utilizar uma API_KEY de autenticação por meio de um Injectable.
 (Validação simples, apenas verificar se a API_KEY existe e se é igual a API_KEY
-do servidor. Pode usar variáveis de ambiente.)
+do servidor. Pode usar variáveis de ambiente.) 
+
+    /\
+   /  \
+  /    \
+ / _ _ _\
+    ||
+    ||
+continuar daqui
 
 Frontend (Projeto 2)
 ● O Frontend deverá ser desenvolvido utilizando o framework NextJS e Material UI
@@ -23,7 +31,7 @@ dos telefones referentes a esse usuário. (endpoint GET
 ● O candidato tem liberdade para criar o design/estilos que desejar.
 */
 
-// continue from "crud phones" and " get all phone numbers " 
+// get all phone numbers 
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 

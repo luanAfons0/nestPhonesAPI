@@ -4,7 +4,7 @@ import { Phone_numbers, Prisma } from '@prisma/client';
 
 @Injectable()
 export class PhoneService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
   // get phone number
   async getPhoneNumber(
@@ -16,7 +16,7 @@ export class PhoneService {
   }
 
   // get all phone numbers
-  async posts(params: {
+  async getAllPhoneNumbers(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.Phone_numbersWhereUniqueInput;
@@ -34,7 +34,7 @@ export class PhoneService {
   }
 
   // create phone number
-  async createPost(data: Prisma.Phone_numbersCreateInput): Promise<Phone_numbers> {
+  async createPhoneNumber(id:number,data: Prisma.Phone_numbersCreateInput): Promise<Phone_numbers> {
     return this.prisma.phone_numbers.create({
       data,
     });
