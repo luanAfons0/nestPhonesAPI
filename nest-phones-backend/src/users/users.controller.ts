@@ -1,10 +1,8 @@
-import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
-
+import { Body, Controller, Delete, Get, Param, Post, Put ,UseGuards} from '@nestjs/common';
 import { UsersService } from './users.service';
 import { CreateUserDto } from './dto/create-user-dto';
-
-import { PhoneService } from './phone.service';
-import { PhoneNumberDto } from './dto/create-phone-number-dto';
+import { PhoneService } from '../phones/phone.service';
+import { PhoneNumberDto } from '../phones/dto/create-phone-number-dto';
 
 @Controller('api/users')
 export class UsersController {

@@ -9,12 +9,12 @@ retorna a lista de telefones de um determinado usuário por ID (validar
 parâmetros via DTO). / done
 ● A API deve utilizar uma API_KEY de autenticação por meio de um Injectable.
 (Validação simples, apenas verificar se a API_KEY existe e se é igual a API_KEY
-do servidor. Pode usar variáveis de ambiente.) 
+do servidor. Pode usar variáveis de ambiente.)
 
     /\
    /  \
   /    \
- / _ _ _\
+ /______\
     ||
     ||
 continuar daqui
