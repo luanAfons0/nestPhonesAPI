@@ -4,19 +4,20 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import * as passport from 'passport';
+
 @Injectable()
 export class AuthMiddleware implements NestMiddleware {
   use(req: any, res: any, next: () => void) {
     passport.authenticate(
-  'headerapikey',
+      'headerapikey',
       { session: false, failureRedirect: '/ api / unauthorized' },
-  value => {
-  if (value) {
-    next();
-  } else {
-    throw new UnauthorizedException();
+      value => {
+        if (value) {
+          next();
+        } else {
+          throw new UnauthorizedException();
+        }
+      },
+    )(req, res, next);
   }
-},
-  ) (req, res, next);
-  }
-  }
+}
