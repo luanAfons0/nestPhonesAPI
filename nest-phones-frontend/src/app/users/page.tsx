@@ -14,6 +14,8 @@ type User = {
 }
 
 export default function UsersPage() {
+
+    // dark mode
     const [mode, setMode] = useState<PaletteMode>('light')
 
     const theme = createTheme({
@@ -26,22 +28,27 @@ export default function UsersPage() {
         setMode(mode === 'light' ? 'dark' : 'light')
     }
 
-    const fetcher = (url: string) => fetch(url,{headers:{'x-api-key':'validation_key1'}}).then(res => res.json())
-    const URL = "http://localhost:3001/api/users"
+    //pagination system
+    const [page,setPage] = useState(0)
+
+    //fetch data
+    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' } }).then(res => res.json())
+    const URL = `http://localhost:3001/api/users?page=${page}`
     const { data, error, isLoading } = useSWR<User[]>(URL, fetcher)
 
+    //render ui
     return (
         <ThemeProvider theme={theme}>
             <Paper sx={{ height: '100vh', borderRadius: 0 }}>
                 <Container maxWidth={'xl'} sx={{ paddingBottom: 2 }}>
                     <Navbar toggleTheme={toggleTheme} />
-                    <Pagination />
+                    <Pagination setIndexPage={setPage} />
                     <ul>
-                        {data? data.map((user)=>{
-                            return(
-                                <li>{user.name}</li>
+                        {data ? data.map((user) => {
+                            return (
+                                <li key={user.id}>{user.name}</li>
                             )
-                        }) : 'deu ruim rapaize'}
+                        }) : 'Carregando...'}
                     </ul>
                 </Container>
             </Paper>
