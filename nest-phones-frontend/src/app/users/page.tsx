@@ -1,23 +1,34 @@
-async function getData() {
-    const res = await fetch('https://localhost:3001/api/users',{
-        headers:{
-            'x-api-key':'validation_key1'
+'use client'
+
+import { Container, PaletteMode, Paper } from '@mui/material';
+import { createTheme, ThemeProvider } from '@mui/material';
+import { useState } from 'react';
+import Navbar from '../../_components/navbar'
+import Pagination from '../../_components/pagination'
+import UsersGrid from './users';
+
+export default function UsersPage() {
+    const [mode, setMode] = useState<PaletteMode>('light')
+
+    const theme = createTheme({
+        palette: {
+            mode: mode
         }
     })
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data')
+    const toggleTheme = () => {
+        setMode(mode === 'light' ? 'dark' : 'light')
     }
 
-    return res.json()
-}
-
-export default async function UsersPage() {
-    const data = await getData()
-
     return (
-        <>
-            <h1>Users page</h1>
-        </>
+        <ThemeProvider theme={theme}>
+            <Paper sx={{ height: '100vh', borderRadius: 0 }}>
+                <Container maxWidth={'xl'} sx={{ paddingBottom: 2 }}>
+                    <Navbar toggleTheme={toggleTheme} />
+                    <Pagination />
+                    <UsersGrid />
+                </Container>
+            </Paper>
+        </ThemeProvider>
     )
 }
