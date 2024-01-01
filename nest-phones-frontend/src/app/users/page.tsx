@@ -29,10 +29,10 @@ export default function UsersPage() {
     }
 
     //pagination system
-    const [page,setPage] = useState(0)
+    const [page,setPage] = useState(1)
 
     //fetch data
-    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' } }).then(res => res.json())
+    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' }}).then(res => res.json())
     const URL = `http://localhost:3001/api/users?page=${page}`
     const { data, error, isLoading } = useSWR<User[]>(URL, fetcher)
 
@@ -44,11 +44,9 @@ export default function UsersPage() {
                     <Navbar toggleTheme={toggleTheme} />
                     <Pagination setIndexPage={setPage} />
                     <ul>
-                        {data ? data.map((user) => {
-                            return (
-                                <li key={user.id}>{user.name}</li>
-                            )
-                        }) : 'Carregando...'}
+                        {!isLoading ? data?.map((user)=>(
+                            <li key={user.id}>{user.name}</li>
+                        )): ' deu ruim nao quero mais'}
                     </ul>
                 </Container>
             </Paper>

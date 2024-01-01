@@ -25,6 +25,7 @@ export class UsersController {
       where: { ownerId: +id }
     })
   }
+  
 
   // Create new user
   @Post()
