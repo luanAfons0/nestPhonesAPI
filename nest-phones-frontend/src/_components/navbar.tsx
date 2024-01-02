@@ -89,7 +89,7 @@ export default function PrimarySearchAppBar({toggleTheme}:{toggleTheme:any}) {
   );
 
   return (
-    <Paper elevation={4}>
+    <Paper elevation={3}>
       <AppBar position="static" color='primary'>
         <Toolbar>
           <IconButton size="large" color="inherit">

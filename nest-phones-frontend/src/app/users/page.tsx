@@ -1,17 +1,28 @@
 'use client'
 
-import { Container, PaletteMode, Paper } from '@mui/material';
+import { Container, PaletteMode, Paper, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 import Navbar from '../../_components/navbar'
 import Pagination from '../../_components/pagination'
 import useSWR from 'swr';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
 type User = {
     name: string,
     id: string,
     email: string
 }
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 export default function UsersPage() {
 
@@ -29,25 +40,34 @@ export default function UsersPage() {
     }
 
     //pagination system
-    const [page,setPage] = useState(1)
+    const [page, setPage] = useState(1)
 
     //fetch data
-    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' }}).then(res => res.json())
+    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' } }).then(res => res.json())
     const URL = `http://localhost:3001/api/users?page=${page}`
     const { data, error, isLoading } = useSWR<User[]>(URL, fetcher)
 
     //render ui
     return (
         <ThemeProvider theme={theme}>
-            <Paper sx={{ height: '100vh', borderRadius: 0 }}>
+            <Paper sx={{borderRadius: 0 , minHeight:"100vh"}}>
                 <Container maxWidth={'xl'} sx={{ paddingBottom: 2 }}>
                     <Navbar toggleTheme={toggleTheme} />
                     <Pagination setIndexPage={setPage} />
-                    <ul>
-                        {!isLoading ? data?.map((user)=>(
-                            <li key={user.id}>{user.name}</li>
-                        )): ' deu ruim nao quero mais'}
-                    </ul>
+                    <Paper elevation={3} sx={{ marginTop: 5 , padding:5}}>
+                        <Box sx={{ flexGrow: 1 }}>
+                            <Grid container spacing={2} sx={{display:'flex',justifyContent:'center',height:'80%'}} >
+                                {!isLoading ? data?.map((user)=>(
+                                <Grid key={user.id} item xs={4}>
+                                    <Item sx={{height:'200px'}}>
+                                        <Typography>{user.name}</Typography>
+                                        <Typography>{user.email}</Typography>
+                                    </Item>
+                                </Grid>
+                                )): 'ta carregando'}
+                            </Grid>
+                        </Box>
+                    </Paper>
                 </Container>
             </Paper>
         </ThemeProvider>
