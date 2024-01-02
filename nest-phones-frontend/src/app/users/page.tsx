@@ -1,28 +1,21 @@
 'use client'
 
-import { Container, PaletteMode, Paper, Typography } from '@mui/material';
+import { CircularProgress, Container, PaletteMode, Paper } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
-import { styled } from '@mui/material/styles';
 import Navbar from '../../_components/navbar'
 import Pagination from '../../_components/pagination'
 import useSWR from 'swr';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import UserCard from '@/_components/usercard';
+import Footer from '@/_components/footer';
 
 type User = {
     name: string,
     id: string,
     email: string
 }
-
-const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-    ...theme.typography.body2,
-    padding: theme.spacing(1),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-}));
 
 export default function UsersPage() {
 
@@ -50,7 +43,7 @@ export default function UsersPage() {
     //render ui
     return (
         <ThemeProvider theme={theme}>
-            <Paper sx={{ borderRadius: 0, minHeight: "100vh" }}>
+            <Paper sx={{ borderRadius: 0, minHeight: "100vh", paddingTop: 2 }}>
                 <Container maxWidth={'xl'} sx={{ paddingBottom: 2 }}>
                     <Navbar toggleTheme={toggleTheme} />
                     <Pagination setIndexPage={setPage} />
@@ -58,16 +51,17 @@ export default function UsersPage() {
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={3} sx={{ display: 'flex', justifyContent: 'center', height: '80%' }} >
                                 {!isLoading ? data?.map((user) => (
-                                    <Grid key={user.id} item xs={4}>
-                                        <Item sx={{ height: '200px' }}>
-                                            <Typography>{user.name}</Typography>
-                                            <Typography>{user.email}</Typography>
-                                        </Item>
+                                    <Grid key={user.id} item sx={{ padding: 1 }}>
+                                        <UserCard user={user} />
                                     </Grid>
-                                )) : 'ta carregando'}
+                                )) : <Box sx={{ display: 'flex', justifyContent: 'center', padding: 5 }}>
+                                    <CircularProgress />
+                                </Box>
+                                }
                             </Grid>
                         </Box>
                     </Paper>
+                    <Footer />
                 </Container>
             </Paper>
         </ThemeProvider>

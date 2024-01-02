@@ -12,30 +12,18 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import PhoneEnabledIcon from '@mui/icons-material/PhoneEnabled';
 import { Paper } from '@mui/material';
 import Switch from '@mui/material/Switch';
-import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 
 export default function PrimarySearchAppBar({ toggleTheme }: { toggleTheme: any }) {
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
     React.useState<null | HTMLElement>(null);
 
-  const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
   };
 
   const handleMobileMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
@@ -60,21 +48,10 @@ export default function PrimarySearchAppBar({ toggleTheme }: { toggleTheme: any 
       onClose={handleMobileMenuClose}
       sx={{ backgroundColor: 'primary' }}
     >
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: 'none', sm: 'block' } }}
-          >
-            <Link href='/about' style={{ textDecoration: 'none' }}>Sobre nós</Link>
-          </Typography>
-        </IconButton>
+      <MenuItem sx={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
+        <Typography variant='h5'>
+        <Link href="/about" underline="hover"> Sobre nós </Link>
+        </Typography>
       </MenuItem>
       <MenuItem>
         <IconButton
