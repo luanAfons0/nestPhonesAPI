@@ -16,7 +16,7 @@ import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Link from '@mui/material/Link';
 
-export default function PrimarySearchAppBar({toggleTheme}:{toggleTheme:any}) {
+export default function PrimarySearchAppBar({ toggleTheme }: { toggleTheme: any }) {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] =
@@ -58,7 +58,7 @@ export default function PrimarySearchAppBar({toggleTheme}:{toggleTheme:any}) {
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
-      sx={{backgroundColor:'primary'}}
+      sx={{ backgroundColor: 'primary' }}
     >
       <MenuItem>
         <IconButton

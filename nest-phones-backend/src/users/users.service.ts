@@ -14,7 +14,7 @@ export class UsersService {
     });
   }
 
-  // get all users
+  // get all users paginated
   async findAll(params: {
     page:number;
     skip: number;
@@ -31,6 +31,11 @@ export class UsersService {
       orderBy,
       skip,
     });
+  }
+
+  //get users total
+  async getUsersTotal(){
+    return (Math.ceil((await this.prisma.user.findMany()).length / 5));
   }
 
   // create user

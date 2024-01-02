@@ -8,14 +8,19 @@ import { PhoneNumberDto } from '../phones/dto/create-phone-number-dto';
 export class UsersController {
   constructor(private readonly usersService: UsersService, private readonly phoneService: PhoneService) { }
 
-  // Get all users
+  // Get all users paginated
   @Get()
   findAll(@Query('page') page: number) {
-    return this.usersService.findAll({
-      page: page,
-      take: 5,
-      skip: 5 * (page - 1)
-    });
+    if (page) {
+      return this.usersService.findAll({
+        page: page,
+        take: 5,
+        skip: 5 * (page - 1)
+      });
+    } else {
+      return this.usersService.getUsersTotal();
+    }
+
   }
 
   // get all phones related to user
@@ -25,7 +30,6 @@ export class UsersController {
       where: { ownerId: +id }
     })
   }
-  
 
   // Create new user
   @Post()
