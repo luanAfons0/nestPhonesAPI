@@ -8,8 +8,8 @@ import Pagination from '../../_components/pagination'
 import useSWR from 'swr';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import UserCard from '@/_components/usercard';
 import Footer from '@/_components/footer';
+import PhoneModal from '@/_components/phonemodal';
 
 type User = {
     name: string,
@@ -51,9 +51,7 @@ export default function UsersPage() {
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={3} sx={{ display: 'flex', justifyContent: 'center', height: '80%' }} >
                                 {!isLoading ? data?.map((user) => (
-                                    <Grid key={user.id} item sx={{ padding: 1 }}>
-                                        <UserCard user={user} />
-                                    </Grid>
+                                    <PhoneModal user={user} />
                                 )) : <Box sx={{ display: 'flex', justifyContent: 'center', padding: 5 }}>
                                     <CircularProgress />
                                 </Box>

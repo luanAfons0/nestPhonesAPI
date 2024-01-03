@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material"
 import { styled } from '@mui/material/styles';
 import Paper from "@mui/material/Paper";
+import Link from "next/link";
 
 // custom style for users
 const Item = styled(Paper)(({ theme }) => ({
@@ -8,8 +9,8 @@ const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    width:'200px',
-    height:'150px',
+    width: '200px',
+    height: '150px',
     color: theme.palette.text.secondary,
 }));
 
@@ -28,7 +29,7 @@ const randomColor = (max: number) => {
 
         case 3:
             return '#f57c00'
-        
+
         case 4:
             return '#4fc3f7'
 
@@ -37,7 +38,7 @@ const randomColor = (max: number) => {
 
         case 6:
             return '#81c784'
-    
+
         case 7:
             return '#388e3c'
 
@@ -47,10 +48,10 @@ const randomColor = (max: number) => {
 }
 
 
-export default function UserCard({ user }: { user: { id: string, name: string, email: string } }) {
+export default function UserCard({ user, handleOpen }: { user: { id: string, name: string, email: string }, handleOpen: any }) {
     return (
-        <Item >
-            <Box sx={{ display: 'flex', justifyContent: 'center',margin:1}}>
+        <Item onClick={handleOpen}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', margin: 1 }}>
                 <Box sx={{ backgroundColor: randomColor(8), borderRadius: '50%', width: '50px', height: '50px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 'xxx-large', padding: 1 }}>
                     <Typography>{user.name.slice(0, 1).toUpperCase()}</Typography>
                 </Box>
