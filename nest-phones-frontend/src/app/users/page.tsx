@@ -51,7 +51,7 @@ export default function UsersPage() {
                         <Box sx={{ flexGrow: 1 }}>
                             <Grid container spacing={3} sx={{ display: 'flex', justifyContent: 'center', height: '80%' }} >
                                 {!isLoading ? data?.map((user) => (
-                                    <PhoneModal user={user} />
+                                    <PhoneModal key={user.id} user={user} mode={mode} />
                                 )) : <Box sx={{ display: 'flex', justifyContent: 'center', padding: 5 }}>
                                     <CircularProgress />
                                 </Box>
