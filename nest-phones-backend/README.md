@@ -40,10 +40,11 @@ $ npm install
 
 2. Criação de variaveis de ambiente:
 Na pasta raiz da aplicação, crie um arquivo nomeado ".env" e faça a atribuição das variaveis de ambiente necessarias:
-### DATABASE_URL="file:./dev.db"(recomendado que possua esse valor)
-### API_KEY1="validation_key1"(valor que desejar)
-### API_KEY2="validation_key2"(valor que desejar)
-
+```bash
+$ DATABASE_URL="file:./dev.db"(recomendado que possua esse valor)
+$ API_KEY1="validation_key1"(valor que desejar)
+$ API_KEY2="validation_key2"(valor que desejar)
+```
 ## Fazendo a aplicação rodar :rocket:
 
 ```bash
