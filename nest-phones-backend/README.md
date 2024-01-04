@@ -2,10 +2,7 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+  <p align="center">Um framework <a href="http://nodejs.org" target="_blank">Node.js</a> progressivo para desenvolvimento eficiente e escalavel de aplicações "server-side".</p>
     <p align="center">
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
 <a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
@@ -22,52 +19,54 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+# Nest-Phones API  back-end
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Um projeto server-side completo com o CRUD de dados usando Nest.js, Prisma ORM e banco de dados SQLite
 
-## Installation
+* A API se conecta ao banco de dados SQLite por meio do ORM PrismaJS.
+* A API contem um endpoint GET “api/users?page={x}” que retorna a lista paginada de usuários cadastrados.
+* A API contem um endpoint GET “api/users/:userId/phone_numbers” que retorna a lista de telefones de um determinado usuário por ID ( parâmetros validados via DTO).
+* A API utiliza uma API_KEY de autenticação por meio de um Injectable.
+(Validação simples, apenas verificar se a API_KEY existe e se é igual a API_KEY
+do servidor.)
 
+## Preparação de ambiente :exclamation:
+
+1. Instalação de dependencias:
+Para que a aplicação funcione será necessaria a instalação dos pacotes utilizados. Use o comando a seguir para a instalação dos mesmos:
 ```bash
 $ npm install
 ```
 
-## Running the app
+2. Criação de variaveis de ambiente:
+Na pasta raiz da aplicação, crie um arquivo nomeado ".env" e faça a atribuição das variaveis de ambiente necessarias:
+>DATABASE_URL="file:./dev.db"(recomendado que possua esse valor)
+>API_KEY1="validation_key1"(valor que desejar)
+>API_KEY2="validation_key2"(valor que desejar)
+
+## Fazendo a aplicação rodar :rocket:
 
 ```bash
-# development
+# Desenvolvimento
 $ npm run start
 
-# watch mode
+# Modo de observação
 $ npm run start:dev
 
-# production mode
+# Modo de produção
 $ npm run start:prod
 ```
 
-## Test
+## Suporte :pushpin:
 
-```bash
-# unit tests
-$ npm run test
+Nest.js é um projeto de codigo aberto(MIT-licensed). Ele pode crescer graças a colaboradores e o suporte de increveis apoiadores. Se desejar fazer parte dessa equipe, por favor [saiba mais aqui](https://docs.nestjs.com/support).
 
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
+## Fique ligado :smile:
 
 - Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
 - Website - [https://nestjs.com](https://nestjs.com/)
 - Twitter - [@nestframework](https://twitter.com/nestframework)
 
-## License
+## Licença de projeto
 
 Nest is [MIT licensed](LICENSE).
