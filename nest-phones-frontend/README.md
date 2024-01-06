@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Este é um projeto [Next.js] inicializado com [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Nest-Phones API  front-end
+## Um projeto client-side completo usando Next.Js e Typescript
 
-First, run the development server:
+* O Frontend foi desenvolvido utilizando o framework NextJS e Material UI
+* A página inicial lista os usuários paginados (5 por página) retornados pela API através do endpoint GET “api/users”.
+* Persistir paginação em URL.
+* Ao clicar em um usuário específico, uma modal será aberto exibindo a lista dos telefones referentes a esse usuário. (endpoint GET“api/users/:userId/phone_numbers”)
 
+## Preparação de ambiente :exclamation:
+
+1. Instalação de dependencias:
+Para que a aplicação funcione será necessaria a instalação dos pacotes utilizados. Use o comando a seguir para a instalação dos mesmos:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+$ npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Criação de variaveis de ambiente:
+Na pasta raiz da aplicação, crie um arquivo nomeado ".env" e faça a atribuição das variaveis de ambiente necessarias:
+:exclamation: (O valor desta variavel tem que ser o mesmo das "API_KEY" declaradas no nest-phones-back-end)
+```bash
+$ NEXT_PUBLIC_VALIDATION_KEY1="validation_key1"
+$ NEXT_PUBLIC_VALIDATION_KEY2="validation_key2"
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver os resultados.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Saiba mais
 
-## Learn More
+Para aprender mais sobre Next.js, de uma olhada nos seguintes conteudos.
 
-To learn more about Next.js, take a look at the following resources:
+- [Next.js Documentation](https://nextjs.org/docs) - Aprenda sobre as funcionalidades de Next.js e API.
+- [Learn Next.js](https://nextjs.org/learn) - Um aprendizado interativo sobre Next.js.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Você tambem pode checar [the Next.js GitHub repository](https://github.com/vercel/next.js/) - sua opnião e contribuições sempre são bem vindas !!!
