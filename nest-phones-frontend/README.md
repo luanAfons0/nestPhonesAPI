@@ -17,7 +17,7 @@ $ npm install
 ```
 
 2. Criação de variaveis de ambiente:
-Na pasta raiz da aplicação, crie um arquivo nomeado ".env" e faça a atribuição das variaveis de ambiente necessarias:
+Na pasta raiz da aplicação, crie um arquivo nomeado ".env.local" e faça a atribuição das variaveis de ambiente necessarias:
 :exclamation: (O valor desta variavel tem que ser o mesmo das "API_KEY" declaradas no nest-phones-back-end)
 ```bash
 $ NEXT_PUBLIC_VALIDATION_KEY1="validation_key1"
