@@ -48,11 +48,6 @@ export default function PrimarySearchAppBar({ toggleTheme }: { toggleTheme: any 
       onClose={handleMobileMenuClose}
       sx={{ backgroundColor: 'primary' }}
     >
-      <MenuItem sx={{ display: 'flex', alignContent: 'center', justifyContent: 'center' }}>
-        <Typography variant='h5'>
-        <Link href="/about" underline="hover"> Sobre nós </Link>
-        </Typography>
-      </MenuItem>
       <MenuItem>
         <IconButton
           size="large"
@@ -82,16 +77,6 @@ export default function PrimarySearchAppBar({ toggleTheme }: { toggleTheme: any 
           </IconButton>
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ display: { xs: 'none', sm: 'block' } }}
-              >
-                <Link href={'/about'} style={{ textDecoration: 'none', color: 'white' }}>Sobre nós</Link>
-              </Typography>
-            </IconButton>
             <FormControlLabel required control={<Switch />} onChange={toggleTheme} label="Dark Mode" />
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>

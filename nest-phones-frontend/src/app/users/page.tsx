@@ -36,7 +36,7 @@ export default function UsersPage() {
     const [page, setPage] = useState(1)
 
     //fetch data
-    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' } }).then(res => res.json())
+    const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': process.env.NEXT_PUBLIC_VALIDATION_KEY1 || '' } }).then(res => res.json())
     const URL = `http://localhost:3001/api/users?page=${page}`
     const { data, error, isLoading } = useSWR<User[]>(URL, fetcher)
 

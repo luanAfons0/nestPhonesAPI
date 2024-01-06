@@ -82,7 +82,7 @@ export default function PhoneModal({ user, mode }: { user: any, mode: string }) 
   };
 
   // style letter name
-  const ballStyle = { backgroundColor: randomColor(8), borderRadius: '50%', width: '50px', height: '50px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 'xxx-large', padding: 1 }
+  const ballStyle = {borderRadius: '50%', width: '50px', height: '50px', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: 'xxx-large', padding: 1 }
 
   //fetch data
   const fetcher = (url: string) => fetch(url, { headers: { 'x-api-key': 'validation_key1' } }).then(res => res.json())
@@ -118,7 +118,7 @@ export default function PhoneModal({ user, mode }: { user: any, mode: string }) 
                     justifyContent: 'space-between',
                     alignItems:'center'
                   }}>
-                    <Box sx={ballStyle}>
+                    <Box sx={{...ballStyle,backgroundColor: randomColor(8)}}>
                       <Typography>{user.name.slice(0, 1).toUpperCase()}</Typography>
                     </Box>
                       <Typography>{user.name}</Typography>
