@@ -24,6 +24,13 @@ $ NEXT_PUBLIC_VALIDATION_KEY1="validation_key1"
 $ NEXT_PUBLIC_VALIDATION_KEY2="validation_key2"
 ```
 
+3. Fazendo a aplicação rodar :rocket:
+
+```bash
+# Desenvolvimento
+$ npm run dev
+```
+
 Abra [http://localhost:3000](http://localhost:3000) no seu navegador para ver os resultados.
 
 ## Saiba mais
