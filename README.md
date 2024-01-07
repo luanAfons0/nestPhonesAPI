@@ -1,4 +1,4 @@
-﻿# nestPhonesAPI
+﻿# NestPhonesAPI
 
 ## Objetivos do projeto:
 ### Back-end (Projeto 1)✔️
@@ -16,7 +16,7 @@
 4. Ao clicar em um usuário específico, uma modal deverá ser aberta exibindo a lista dos telefones referentes a esse usuário. (endpoint GET “api/users/:userId/phone_numbers”)
 ● O candidato tem liberdade para criar o design/estilos que desejar.
 
-#❗Atenção❗
+❗Atenção❗
 Para clonar o projeto utilize o comando:
 ```bash
 git clone https://github.com/luanAfons0/nestPhonesAPI
